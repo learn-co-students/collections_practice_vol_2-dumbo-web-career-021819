@@ -97,17 +97,3 @@ def organize_schools(hash)
   puts temphash.sort
   temphash
 end
-
-def organize_school(hash)
-  temp = {}
-  hash.each do |key, value|
-    if temp.keys.include?(value[:location])
-      temp[value[:location]] << key
-    else
-      temp[value[:location]] = key
-    end
-  end
-
-  puts temp
-  temp.class
-end
