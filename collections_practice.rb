@@ -14,13 +14,18 @@ def remove_non_strings(arr)
   arr.select{ |obj| obj.is_a?(String) }
 end
 
+# it 'count how many times something appears in an array' do
+#     expect(count_elements([{:name => "blake"}, {:name => "blake"}, {:name => "ashley"}])).to eq([{:name => "blake", :count => 2}, {:name => "ashley", :count => 1}])
+    
+
 def count_elements(arr)
-  arr = arr.map do |element|
-    num_of_occurrences = arr.count(element)
-    count_hash = {:count => num_of_occurrences}
-    element = count_hash.merge(element)
+  arr = arr.map do |hash_entry|
+    num_of_occurences = arr.count(hash_entry)
+    count_hash = {:count => num_of_occurences}
+    hash_entry = hash_entry.merge(count_hash)
   end
-  arr.uniq!
+  arr = arr.uniq
+  return arr
 end
 
 def merge_data(data1,data2)
