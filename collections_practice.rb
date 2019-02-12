@@ -60,11 +60,11 @@ def organize_schools(schools_hash)
   
   schools_hash.each do |school, location_hash|
     if location_hash[:location] == "NYC"
-      nyc_hash["NYC"] << school
+      nyc_hash["NYC"].push(school)
     elsif location_hash[:location] == "SF"
-      sf_hash["SF"] << school
+      sf_hash["SF"].push(school)
     elsif location_hash[:location] == "Chicago"
-      chicago_hash["Chicago"] << school
+      chicago_hash["Chicago"].push(school)
     end
   end
   
