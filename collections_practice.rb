@@ -54,26 +54,22 @@ def find_cool(hash_inside_array)
 end
 
 def organize_schools(schools_hash)
-  nyc_arr = []
-  sf_arr = []
-  chicago_arr = []
+  nyc_hash = {"NYC" => []}
+  sf_hash = {"SF" => []}
+  chicago_hash = {"Chicago" => []}
   
-  schools_hash.each do |school|
-    if school[1].has_value?("NYC")
-      nyc_arr << school[0]
-    elsif school[1].has_value?("SF")
-      sf_arr << school[0]
-    elsif school[1].has_value?("Chicago")
-      chicago_arr << school[0]
+  schools_hash.each do |school, location_hash|
+    if location_hash[:location] == "NYC"
+      nyc_hash["NYC"] << location_hash[:location]
+    elsif location_hash[:location] == "SF"
+      sf_hash["SF"] << location_hash[:location]
+    elsif location_hash[:location] == "Chicago"
+      chicago_hash["Chicago"] << location_hash[:location]
     end
   end
-  nyc_hash = {"NYC" => nyc_arr}
-  sf_hash = {"SF" => sf_arr}
-  chicago_hash = {"Chicago" => chicago_arr}
-  org_schools_hash = {}
-  org_schools_hash = org_schools_hash.merge(nyc_hash)
-  org_schools_hash = org_schools_hash.merge(sf_hash)
-  org_schools_hash = org_schools_hash.merge(chicago_hash)
+  
+  org_schools_hash = nyc_hash.merge(sf_hash)
+  org_schools_hash.merge!(chicago_hash)
   return org_schools_hash
 end
 
