@@ -44,13 +44,13 @@ def merge_data(data1,data2)
 end
 
 def find_cool(hash_inside_array)
-  cool_hash = []
+  answer = []
   hash_inside_array.each do |hash|
     if hash[:temperature] == "cool"
-      cool_hash.push(hash)
+      answer.push(hash)
     end
   end
-  return cool_hash
+  return answer
 end
 
 def organize_schools(schools_hash)
