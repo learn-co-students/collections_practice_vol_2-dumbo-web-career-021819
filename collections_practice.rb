@@ -97,6 +97,15 @@ def organize_schools(schools)
   finalObj = {}
   
   schools.each {|programs, locationHash|
-    binding.pry
+    locationHash.each {|locSymb, location|
+      if finalObj[location] == nil
+        finalObj[location] = []
+        finalObj[location].push(programs)
+      else
+        finalObj[location].push(programs)
+      end
+    }
   }
+  
+  return finalObj
 end
